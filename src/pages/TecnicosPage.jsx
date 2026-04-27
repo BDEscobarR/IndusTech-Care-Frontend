@@ -1,3 +1,4 @@
+/*
 import { useState, useEffect } from 'react';
 import { usuarioApi } from '../services/api';
 import { Plus, Pencil, Trash2, Phone, MapPin, Wrench, CheckCircle, XCircle } from 'lucide-react';
@@ -111,7 +112,7 @@ function TecnicoCard({ tecnico, index, onEdit, onDelete }) {
             padding:22, boxShadow:'0 1px 3px rgba(0,0,0,.06)',
             display:'flex', flexDirection:'column', gap:0,
         }}>
-            {/* Header */}
+            {/!* Header *!/}
             <div style={{ display:'flex', alignItems:'flex-start', gap:14, marginBottom:16 }}>
                 <div style={{
                     width:52, height:52, borderRadius:'50%',
@@ -133,7 +134,7 @@ function TecnicoCard({ tecnico, index, onEdit, onDelete }) {
                 </div>
             </div>
 
-            {/* ID y disponibilidad */}
+            {/!* ID y disponibilidad *!/}
             <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:12 }}>
                 <div style={{ display:'flex', alignItems:'center', gap:6 }}>
                     {disponible
@@ -154,7 +155,7 @@ function TecnicoCard({ tecnico, index, onEdit, onDelete }) {
                 </div>
             </div>
 
-            {/* Contacto */}
+            {/!* Contacto *!/}
             <div style={{ borderTop:'1px solid #f1f5f9', paddingTop:12, display:'flex', flexDirection:'column', gap:6 }}>
                 {tecnico.telefono
                     ? <div style={{ display:'flex',alignItems:'center',gap:8,fontSize:13,color:'#475569' }}>
@@ -225,7 +226,7 @@ export function TecnicosPage() {
                 <button className="btn btn-primary" onClick={() => setModal('new')}><Plus size={16}/>Nuevo Técnico</button>
             </div>
 
-            {/* Stats */}
+            {/!* Stats *!/}
             <div style={{ display:'flex', gap:12, marginBottom:20, flexWrap:'wrap' }}>
                 {[['Total',stats.total,'#1a56db'],['Disponibles',stats.disponibles,'#16a34a'],['Ocupados',stats.ocupados,'#d97706']].map(([l,v,c])=>(
                     <div key={l} style={{ background:'#fff',border:'1px solid #e2e8f0',borderRadius:12,padding:'14px 20px',display:'flex',alignItems:'center',gap:12,boxShadow:'0 1px 3px rgba(0,0,0,.05)' }}>
@@ -235,7 +236,7 @@ export function TecnicosPage() {
                 ))}
             </div>
 
-            {/* Filtros */}
+            {/!* Filtros *!/}
             <div style={{ display:'flex', gap:10, marginBottom:20, flexWrap:'wrap', alignItems:'center' }}>
                 <div className="search-bar" style={{ flex:1, minWidth:200 }}>
                     <input placeholder="Buscar por nombre o especialidad..." value={search}
@@ -252,7 +253,7 @@ export function TecnicosPage() {
                 ))}
             </div>
 
-            {/* Cards */}
+            {/!* Cards *!/}
             {loading ? (
                 <div style={{ textAlign:'center',padding:48,color:'#94a3b8' }}>Cargando técnicos...</div>
             ) : filtered.length === 0 ? (
@@ -288,3 +289,4 @@ export function TecnicosPage() {
         </div>
     );
 }
+*/
