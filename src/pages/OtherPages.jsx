@@ -153,7 +153,7 @@ export function RepuestosPage() {
     );
 }
 
-// ════════════════════════════════════════════════════════════════════════════
+/*// ════════════════════════════════════════════════════════════════════════════
 // TecnicosPage — FIX: eliminar botón "Nuevo Técnico" (se gestiona desde Usuarios)
 // ════════════════════════════════════════════════════════════════════════════
 export function TecnicosPage() {
@@ -187,10 +187,10 @@ export function TecnicosPage() {
                     <h1>Técnicos</h1>
                     <p>Usuarios con rol Técnico — gestión desde la sección Usuarios.</p>
                 </div>
-                {/* FIX: botón eliminado — técnicos se crean desde Usuarios con rol TECNICO */}
+                {/!* FIX: botón eliminado — técnicos se crean desde Usuarios con rol TECNICO *!/}
             </div>
 
-            {/* Stats */}
+            {/!* Stats *!/}
             <div style={{ display:'flex',gap:12,marginBottom:20,flexWrap:'wrap' }}>
                 {[['Total',stats.total,'#1a56db'],['Disponibles',stats.disponibles,'#16a34a'],['Ocupados',stats.ocupados,'#d97706']].map(([l,v,c])=>(
                     <div key={l} style={{ background:'#fff',border:'1px solid #e2e8f0',borderRadius:12,padding:'14px 20px',display:'flex',alignItems:'center',gap:12 }}>
@@ -200,7 +200,7 @@ export function TecnicosPage() {
                 ))}
             </div>
 
-            {/* Búsqueda */}
+            {/!* Búsqueda *!/}
             <div className="search-bar" style={{ marginBottom:20 }}>
                 <Search size={15}/>
                 <input placeholder="Buscar por nombre o especialidad..." value={search} onChange={e=>setSearch(e.target.value)}/>
@@ -241,7 +241,7 @@ export function TecnicosPage() {
             )}
         </div>
     );
-}
+}*/
 
 // ════════════════════════════════════════════════════════════════════════════
 // UsuariosPage — FIX: mostrar campo especialidad cuando rol = TECNICO

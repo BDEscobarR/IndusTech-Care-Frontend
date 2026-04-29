@@ -1,4 +1,3 @@
-/*
 import { useState, useEffect } from 'react';
 import { usuarioApi } from '../services/api';
 import { Plus, Pencil, Trash2, Phone, MapPin, Wrench, CheckCircle, XCircle } from 'lucide-react';
@@ -289,4 +288,4 @@ export function TecnicosPage() {
         </div>
     );
 }
-*/
+
