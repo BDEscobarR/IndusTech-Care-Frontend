@@ -33,7 +33,7 @@ function MantModal({ item, onClose, onSave }) {
 
     useEffect(() => {
         maquinariaApi.getAll().then(r => setMaquinas(r.data||[])).catch(()=>{});
-        usuarioApi.getTecnicos().then(r => setTecnicos(r.data||[])).catch(()=>{});
+        usuarioApi.getTecnicos().then(r => setTecnicos(r.data||r||[])).catch(()=>{});
     }, []);
 
     const handleSave = async () => {

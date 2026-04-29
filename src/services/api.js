@@ -100,9 +100,11 @@ export const reporteApi = {
 
 // ── Usuarios ──────────────────────────────────────────────────────────────────
 export const usuarioApi = {
-    getAll:   ()         => http.get('/usuarios').then(r => r.data),
-    getById:  id         => http.get(`/usuarios/${id}`).then(r => r.data),
-    create:   data       => http.post('/usuarios', data).then(r => r.data),
-    update:   (id, data) => http.put(`/usuarios/${id}`, data).then(r => r.data),
-    delete:   id         => http.delete(`/usuarios/${id}`).then(r => r.data),
+    getAll:                  ()    => http.get('/usuarios').then(r => r.data),
+    getById:                 id    => http.get(`/usuarios/${id}`).then(r => r.data),
+    create:                  data  => http.post('/usuarios', data).then(r => r.data),
+    update:          (id, data)    => http.put(`/usuarios/${id}`, data).then(r => r.data),
+    delete:                  id    => http.delete(`/usuarios/${id}`).then(r => r.data),
+    getTecnicos:             ()    => http.get('/usuarios/tecnicos').then(r => r.data),
+    getTecnicosDisponibles:  ()    => http.get('/usuarios/tecnicos/disponibles').then(r => r.data),
 };
