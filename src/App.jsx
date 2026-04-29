@@ -6,7 +6,7 @@ import DashboardPage from './pages/DashboardPage';
 import MaquinariasPage from './pages/MaquinariasPage';
 import { MantenimientosPage } from './pages/MantenimientosPage';
 import FallasPage from './pages/FallasPage';
-import { TecnicosPage } from './pages/TecnicosPage';
+import { TecnicosPage } from './pages/OtherPages.jsx';
 import { RepuestosPage, UsuariosPage, ReportesPage } from './pages/OtherPages';
 import './index.css';
 
