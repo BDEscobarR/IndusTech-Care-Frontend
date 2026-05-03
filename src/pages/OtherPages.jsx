@@ -153,7 +153,8 @@ export function RepuestosPage() {
     );
 }
 
-/*// ════════════════════════════════════════════════════════════════════════════
+/*
+// ════════════════════════════════════════════════════════════════════════════
 // TecnicosPage — FIX: eliminar botón "Nuevo Técnico" (se gestiona desde Usuarios)
 // ════════════════════════════════════════════════════════════════════════════
 export function TecnicosPage() {
@@ -193,9 +194,9 @@ export function TecnicosPage() {
             {/!* Stats *!/}
             <div style={{ display:'flex',gap:12,marginBottom:20,flexWrap:'wrap' }}>
                 {[['Total',stats.total,'#1a56db'],['Disponibles',stats.disponibles,'#16a34a'],['Ocupados',stats.ocupados,'#d97706']].map(([l,v,c])=>(
-                    <div key={l} style={{ background:'#fff',border:'1px solid #e2e8f0',borderRadius:12,padding:'14px 20px',display:'flex',alignItems:'center',gap:12 }}>
+                    <div key={l} style={{ background:'#1e1e1e',border:'1px solid #2d2d2d',borderRadius:12,padding:'14px 20px',display:'flex',alignItems:'center',gap:12 }}>
                         <div style={{ fontSize:24,fontWeight:900,color:c }}>{v}</div>
-                        <div style={{ fontSize:12,color:'#64748b' }}>{l}</div>
+                        <div style={{ fontSize:12,color:'#888' }}>{l}</div>
                     </div>
                 ))}
             </div>
@@ -211,37 +212,38 @@ export function TecnicosPage() {
                     {filtered.length === 0 && <div style={{ textAlign:'center',padding:40,color:'var(--text-muted)' }}>Sin técnicos</div>}
                     <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:16 }}>
                         {filtered.map((t,i)=>(
-                            <div key={t.idUsuario||i} style={{ background:'#fff',border:'1px solid #e2e8f0',borderRadius:16,padding:20,boxShadow:'0 1px 3px rgba(0,0,0,.06)' }}>
+                            <div key={t.idUsuario||i} style={{ background:'#1e1e1e',border:'1px solid #2d2d2d',borderRadius:16,padding:20,boxShadow:'0 2px 8px rgba(0,0,0,.3)' }}>
                                 <div style={{ display:'flex',alignItems:'flex-start',gap:14,marginBottom:14 }}>
                                     <div style={{ width:50,height:50,borderRadius:'50%',background:AC[i%AC.length]+'20',color:AC[i%AC.length],display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,fontSize:15,flexShrink:0 }}>
                                         {initials(t.nombre)}
                                     </div>
                                     <div style={{ flex:1 }}>
-                                        <div style={{ fontWeight:800,fontSize:15,color:'#0f172a',marginBottom:3 }}>{t.nombre}</div>
-                                        <div style={{ fontSize:12,color:'#64748b' }}>🔧 {t.especialidad||'Sin especialidad'}</div>
+                                        <div style={{ fontWeight:800,fontSize:15,color:'#f0f0f0',marginBottom:3 }}>{t.nombre}</div>
+                                        <div style={{ fontSize:12,color:'#888' }}>🔧 {t.especialidad||'Sin especialidad'}</div>
                                     </div>
                                 </div>
                                 <div style={{ display:'flex',alignItems:'center',gap:8,flexWrap:'wrap' }}>
                   <span className={`badge ${t.disponible?'badge-success':'badge-danger'}`}>
                     {t.disponible ? '✓ Disponible' : '× Ocupado'}
                   </span>
-                                    <span style={{ background:'#f0f4ff',color:'#1a56db',fontSize:11,fontWeight:600,padding:'2px 8px',borderRadius:20 }}>
+                                    <span style={{ background:'#f0f4ff',color:'#f5c300',fontSize:11,fontWeight:600,padding:'2px 8px',borderRadius:20 }}>
                     USR-{String(t.idUsuario||0).padStart(3,'0')}
                   </span>
                                 </div>
-                                {t.telefono && <div style={{ marginTop:10,fontSize:12,color:'#475569' }}>📞 {t.telefono}</div>}
-                                {t.direccion && <div style={{ fontSize:12,color:'#94a3b8',marginTop:4 }}>📍 {t.direccion}</div>}
+                                {t.telefono && <div style={{ marginTop:10,fontSize:12,color:'#aaa' }}>📞 {t.telefono}</div>}
+                                {t.direccion && <div style={{ fontSize:12,color:'#666',marginTop:4 }}>📍 {t.direccion}</div>}
                             </div>
                         ))}
                     </div>
-                    <div style={{ marginTop:16,fontSize:12,color:'#94a3b8' }}>
+                    <div style={{ marginTop:16,fontSize:12,color:'#666' }}>
                         💡 Para crear un nuevo técnico ve a <strong>Usuarios</strong> y selecciona el rol "Técnico".
                     </div>
                 </>
             )}
         </div>
     );
-}*/
+}
+*/
 
 // ════════════════════════════════════════════════════════════════════════════
 // UsuariosPage — FIX: mostrar campo especialidad cuando rol = TECNICO
@@ -322,7 +324,7 @@ function UsuarioModal({ item, onClose, onSave }) {
                             <input className="form-input" type={show?'text':'password'} value={form.contrasena||''} onChange={f('contrasena')}
                                    placeholder={isEdit?'••••••••':'Contraseña de acceso'} style={{ paddingRight:44 }}/>
                             <button type="button" onClick={()=>setShow(!show)}
-                                    style={{ position:'absolute',right:12,top:'50%',transform:'translateY(-50%)',background:'none',border:'none',cursor:'pointer',color:'#94a3b8' }}>
+                                    style={{ position:'absolute',right:12,top:'50%',transform:'translateY(-50%)',background:'none',border:'none',cursor:'pointer',color:'#666' }}>
                                 {show?'🙈':'👁'}
                             </button>
                         </div>
@@ -415,9 +417,9 @@ const TIPOS_REPORTE = [
 // ── Sección de estadísticas del reporte ───────────────────────────────────────
 function StatRow({ label, value, color }) {
     return (
-        <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',padding:'10px 0',borderBottom:'1px solid #f1f5f9' }}>
-            <span style={{ fontSize:13,color:'#475569' }}>{label}</span>
-            <span style={{ fontWeight:800,fontSize:16,color: color||'#0f172a' }}>{value ?? '—'}</span>
+        <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',padding:'10px 0',borderBottom:'1px solid #2d2d2d' }}>
+            <span style={{ fontSize:13,color:'#aaa' }}>{label}</span>
+            <span style={{ fontWeight:800,fontSize:16,color: color||'#f0f0f0' }}>{value ?? '—'}</span>
         </div>
     );
 }
@@ -444,11 +446,11 @@ function ReporteModal({ onClose, onSave, usuario }) {
                     setStats({
                         tipo: 'Maquinaria',
                         rows: [
-                            { label:'Total maquinarias',             value: data.length,                                              color:'#1a56db' },
+                            { label:'Total maquinarias',             value: data.length,                                              color:'#f5c300' },
                             { label:'Operativas',                    value: data.filter(m=>m.estado==='OPERATIVO').length,           color:'#16a34a' },
                             { label:'En reparación',                 value: data.filter(m=>m.estado==='EN_REPARACION').length,       color:'#d97706' },
                             { label:'Fuera de servicio',             value: data.filter(m=>m.estado==='FUERA_DE_SERVICIO').length,   color:'#dc2626' },
-                            { label:'Inactivas',                     value: data.filter(m=>m.estado==='INACTIVO').length,            color:'#94a3b8' },
+                            { label:'Inactivas',                     value: data.filter(m=>m.estado==='INACTIVO').length,            color:'#666' },
                         ],
                         lista: data.map(m => `${m.codigo} — ${m.nombre} (${m.estado})`),
                     });
@@ -458,7 +460,7 @@ function ReporteModal({ onClose, onSave, usuario }) {
                     setStats({
                         tipo: 'Mantenimientos',
                         rows: [
-                            { label:'Total mantenimientos',  value: data.length,                                         color:'#1a56db' },
+                            { label:'Total mantenimientos',  value: data.length,                                         color:'#f5c300' },
                             { label:'Activos',               value: data.filter(m=>m.estado==='ACTIVO').length,          color:'#d97706' },
                             { label:'Finalizados',           value: data.filter(m=>m.estado==='FINALIZADO').length,      color:'#16a34a' },
                             { label:'Cancelados',            value: data.filter(m=>m.estado==='CANCELADO').length,       color:'#dc2626' },
@@ -473,7 +475,7 @@ function ReporteModal({ onClose, onSave, usuario }) {
                     setStats({
                         tipo: 'Fallas',
                         rows: [
-                            { label:'Total fallas',          value: data.length,                                    color:'#1a56db' },
+                            { label:'Total fallas',          value: data.length,                                    color:'#f5c300' },
                             { label:'Abiertas / Activas',    value: data.filter(f=>f.activa).length,                color:'#dc2626' },
                             { label:'Cerradas / Resueltas',  value: data.filter(f=>!f.activa).length,               color:'#16a34a' },
                             { label:'Gravedad Alta',         value: data.filter(f=>f.gravedad==='ALTA').length,     color:'#dc2626' },
@@ -492,7 +494,7 @@ function ReporteModal({ onClose, onSave, usuario }) {
                     setStats({
                         tipo: 'Inventario',
                         rows: [
-                            { label:'Total repuestos',      value: data.length,         color:'#1a56db' },
+                            { label:'Total repuestos',      value: data.length,         color:'#f5c300' },
                             { label:'Con stock disponible', value: conStock.length,     color:'#16a34a' },
                             { label:'Stock bajo',           value: stockBajo.length,    color:'#d97706' },
                             { label:'Sin stock',            value: sinStock.length,     color:'#dc2626' },
@@ -550,36 +552,36 @@ function ReporteModal({ onClose, onSave, usuario }) {
                                          background: tipo===t.value ? '#eff6ff' : '#fff',
                                          transition:'all .15s',
                                      }}>
-                                    <div style={{ fontWeight:700,fontSize:13,color: tipo===t.value?'#1a56db':'#0f172a' }}>{t.label}</div>
-                                    <div style={{ fontSize:11,color:'#64748b',marginTop:3 }}>{t.desc}</div>
+                                    <div style={{ fontWeight:700,fontSize:13,color: tipo===t.value?'#111':'#f0f0f0' }}>{t.label}</div>
+                                    <div style={{ fontSize:11,color:'#888',marginTop:3 }}>{t.desc}</div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
                     {/* Estadísticas del tipo seleccionado */}
-                    <div style={{ background:'#f8fafc',borderRadius:12,padding:16,marginBottom:16,border:'1px solid #e2e8f0' }}>
-                        <div style={{ fontWeight:700,fontSize:13,color:'#0f172a',marginBottom:12 }}>
+                    <div style={{ background:'#181818',borderRadius:12,padding:16,marginBottom:16,border:'1px solid #2d2d2d' }}>
+                        <div style={{ fontWeight:700,fontSize:13,color:'#f0f0f0',marginBottom:12 }}>
                             📊 Vista previa — {tipoInfo?.label}
                         </div>
                         {loadingS ? (
-                            <div style={{ textAlign:'center',padding:20,color:'#94a3b8',fontSize:13 }}>Cargando datos...</div>
+                            <div style={{ textAlign:'center',padding:20,color:'#666',fontSize:13 }}>Cargando datos...</div>
                         ) : stats ? (
                             <>
                                 {stats.rows.map(r=><StatRow key={r.label} label={r.label} value={r.value} color={r.color}/>)}
                                 {stats.lista?.length > 0 && (
                                     <details style={{ marginTop:12 }}>
-                                        <summary style={{ fontSize:12,color:'#64748b',cursor:'pointer' }}>Ver detalle ({stats.lista.length} registros)</summary>
+                                        <summary style={{ fontSize:12,color:'#888',cursor:'pointer' }}>Ver detalle ({stats.lista.length} registros)</summary>
                                         <div style={{ marginTop:8,maxHeight:120,overflowY:'auto' }}>
                                             {stats.lista.map((item,i)=>(
-                                                <div key={i} style={{ fontSize:11,color:'#475569',padding:'3px 0',borderBottom:'1px solid #f1f5f9' }}>{item}</div>
+                                                <div key={i} style={{ fontSize:11,color:'#aaa',padding:'3px 0',borderBottom:'1px solid #2d2d2d' }}>{item}</div>
                                             ))}
                                         </div>
                                     </details>
                                 )}
                             </>
                         ) : (
-                            <div style={{ textAlign:'center',padding:16,color:'#94a3b8',fontSize:13 }}>Sin datos disponibles</div>
+                            <div style={{ textAlign:'center',padding:16,color:'#666',fontSize:13 }}>Sin datos disponibles</div>
                         )}
                     </div>
 
@@ -623,17 +625,17 @@ function ReporteDetail({ reporte, onClose }) {
                 if (reporte.tipo === 'Maquinaria') {
                     const r = await maquinariaApi.getAll(); data = r.data||[];
                     rows = [
-                        { label:'Total',          value:data.length,                                             color:'#1a56db' },
+                        { label:'Total',          value:data.length,                                             color:'#f5c300' },
                         { label:'Operativas',     value:data.filter(m=>m.estado==='OPERATIVO').length,           color:'#16a34a' },
                         { label:'En reparación',  value:data.filter(m=>m.estado==='EN_REPARACION').length,       color:'#d97706' },
                         { label:'Fuera servicio', value:data.filter(m=>m.estado==='FUERA_DE_SERVICIO').length,   color:'#dc2626' },
-                        { label:'Inactivas',      value:data.filter(m=>m.estado==='INACTIVO').length,            color:'#94a3b8' },
+                        { label:'Inactivas',      value:data.filter(m=>m.estado==='INACTIVO').length,            color:'#666' },
                     ];
                     lista = data.map(m=>`${m.codigo} — ${m.nombre} (${m.estado})`);
                 } else if (reporte.tipo === 'Mantenimientos') {
                     const r = await mantenimientoApi.getAll(); data = r.data||[];
                     rows = [
-                        { label:'Total',         value:data.length,                                        color:'#1a56db' },
+                        { label:'Total',         value:data.length,                                        color:'#f5c300' },
                         { label:'Activos',       value:data.filter(m=>m.estado==='ACTIVO').length,         color:'#d97706' },
                         { label:'Finalizados',   value:data.filter(m=>m.estado==='FINALIZADO').length,     color:'#16a34a' },
                         { label:'Preventivos',   value:data.filter(m=>m.tipo==='Preventivo').length,       color:'#0891b2' },
@@ -643,7 +645,7 @@ function ReporteDetail({ reporte, onClose }) {
                 } else if (reporte.tipo === 'Fallas') {
                     const r = await fallaApi.getAll(); data = r.data||[];
                     rows = [
-                        { label:'Total',         value:data.length,                                    color:'#1a56db' },
+                        { label:'Total',         value:data.length,                                    color:'#f5c300' },
                         { label:'Abiertas',      value:data.filter(f=>f.activa).length,                color:'#dc2626' },
                         { label:'Cerradas',      value:data.filter(f=>!f.activa).length,               color:'#16a34a' },
                         { label:'Crítica/Alta',  value:data.filter(f=>['ALTA','CRITICA'].includes(f.gravedad)).length, color:'#dc2626' },
@@ -654,7 +656,7 @@ function ReporteDetail({ reporte, onClose }) {
                 } else if (reporte.tipo === 'Inventario') {
                     const r = await repuestoApi.getAll(); data = r.data||[];
                     rows = [
-                        { label:'Total repuestos',  value:data.length,                                                                             color:'#1a56db' },
+                        { label:'Total repuestos',  value:data.length,                                                                             color:'#f5c300' },
                         { label:'Disponibles',      value:data.filter(r=>(r.stockDisponible??r.stock??0)>0).length,                               color:'#16a34a' },
                         { label:'Stock bajo',       value:data.filter(r=>{const s=r.stockDisponible??r.stock??0;return s>0&&r.stockMinimo&&s<=r.stockMinimo;}).length, color:'#d97706' },
                         { label:'Sin stock',        value:data.filter(r=>(r.stockDisponible??r.stock??0)===0).length,                             color:'#dc2626' },
@@ -687,40 +689,40 @@ function ReporteDetail({ reporte, onClose }) {
                     <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:12,marginBottom:16 }}>
                         {[['Título',reporte.titulo],['Tipo',reporte.tipo],['Período',reporte.periodo||'—'],['Fecha',reporte.fecha||'—']].map(([k,v])=>(
                             <div key={k}>
-                                <div style={{ fontSize:11,color:'#94a3b8',fontWeight:600,textTransform:'uppercase',letterSpacing:.5 }}>{k}</div>
-                                <div style={{ fontSize:13,fontWeight:600,color:'#0f172a',marginTop:2 }}>{v}</div>
+                                <div style={{ fontSize:11,color:'#666',fontWeight:600,textTransform:'uppercase',letterSpacing:.5 }}>{k}</div>
+                                <div style={{ fontSize:13,fontWeight:600,color:'#f0f0f0',marginTop:2 }}>{v}</div>
                             </div>
                         ))}
                     </div>
 
                     {/* Estadísticas en tiempo real */}
-                    <div style={{ background:'#f8fafc',borderRadius:12,padding:16,border:'1px solid #e2e8f0' }}>
-                        <div style={{ fontWeight:700,fontSize:13,color:'#0f172a',marginBottom:12 }}>📊 Estadísticas actuales</div>
+                    <div style={{ background:'#181818',borderRadius:12,padding:16,border:'1px solid #2d2d2d' }}>
+                        <div style={{ fontWeight:700,fontSize:13,color:'#f0f0f0',marginBottom:12 }}>📊 Estadísticas actuales</div>
                         {loading ? (
-                            <div style={{ textAlign:'center',padding:20,color:'#94a3b8' }}>Cargando datos...</div>
+                            <div style={{ textAlign:'center',padding:20,color:'#666' }}>Cargando datos...</div>
                         ) : stats ? (
                             <>
                                 {stats.rows.map(r=><StatRow key={r.label} label={r.label} value={r.value} color={r.color}/>)}
                                 {stats.lista?.length > 0 && (
                                     <details style={{ marginTop:12 }}>
-                                        <summary style={{ fontSize:12,color:'#64748b',cursor:'pointer' }}>Ver detalle completo ({stats.lista.length} registros)</summary>
+                                        <summary style={{ fontSize:12,color:'#888',cursor:'pointer' }}>Ver detalle completo ({stats.lista.length} registros)</summary>
                                         <div style={{ marginTop:8,maxHeight:200,overflowY:'auto' }}>
                                             {stats.lista.map((item,i)=>(
-                                                <div key={i} style={{ fontSize:11,color:'#475569',padding:'4px 0',borderBottom:'1px solid #f1f5f9' }}>{item}</div>
+                                                <div key={i} style={{ fontSize:11,color:'#aaa',padding:'4px 0',borderBottom:'1px solid #2d2d2d' }}>{item}</div>
                                             ))}
                                         </div>
                                     </details>
                                 )}
                             </>
                         ) : (
-                            <div style={{ textAlign:'center',padding:16,color:'#94a3b8' }}>No hay datos para este tipo de reporte</div>
+                            <div style={{ textAlign:'center',padding:16,color:'#666' }}>No hay datos para este tipo de reporte</div>
                         )}
                     </div>
 
                     {reporte.descripcion && (
                         <div style={{ marginTop:14 }}>
-                            <div style={{ fontSize:11,color:'#94a3b8',fontWeight:600,textTransform:'uppercase',letterSpacing:.5,marginBottom:4 }}>Descripción</div>
-                            <p style={{ fontSize:13,color:'#475569',lineHeight:1.7 }}>{reporte.descripcion}</p>
+                            <div style={{ fontSize:11,color:'#666',fontWeight:600,textTransform:'uppercase',letterSpacing:.5,marginBottom:4 }}>Descripción</div>
+                            <p style={{ fontSize:13,color:'#aaa',lineHeight:1.7 }}>{reporte.descripcion}</p>
                         </div>
                     )}
                 </div>
